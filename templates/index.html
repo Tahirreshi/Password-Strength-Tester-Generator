@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Tool</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+  <div class="container">
+    <h2 class="mb-4"> Password Strength Tester</h2>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="password" class="form-label">Enter Password</label>
+        <input type="text" class="form-control" name="password" id="password" required>
+      </div>
+      <button class="btn btn-primary">Check Strength</button>
+    </form>
+
+    <hr class="my-5">
+
+    <h2 class="mb-4">🔧 Password Generator</h2>
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Password Length</label>
+        <input type="number" name="gen_length" class="form-control" min="4" max="50" required>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="gen_upper" class="form-check-input" id="upper">
+        <label for="upper" class="form-check-label">Include Uppercase Letters</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="gen_lower" class="form-check-input" id="lower">
+        <label for="lower" class="form-check-label">Include Lowercase Letters</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="gen_digits" class="form-check-input" id="digits">
+        <label for="digits" class="form-check-label">Include Digits</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="gen_symbols" class="form-check-input" id="symbols">
+        <label for="symbols" class="form-check-label">Include Symbols</label>
+      </div>
+      <button class="btn btn-success mt-3">Generate Password</button>
+    </form>
+
+    {% if result %}
+      {% include 'result.html' %}
+    {% endif %}
+
+    {% if generated %}
+      {% include 'result.html' with context %}
+    {% endif %}
+  </div>
+</body>
+</html>
+

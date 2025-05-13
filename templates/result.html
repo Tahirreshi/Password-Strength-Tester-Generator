@@ -1,0 +1,15 @@
+<div class="alert mt-5 
+  {% if result and result.strength == 'Strong' or generated and generated.strength == 'Strong' %}
+    alert-success
+  {% elif result and result.strength == 'Moderate' or generated and generated.strength == 'Moderate' %}
+    alert-warning
+  {% else %}
+    alert-danger
+  {% endif %}">
+  <h5>Password: {{ result.password if result else generated.password }}</h5>
+  <p>Entropy: {{ result.entropy if result else generated.entropy }}</p>
+  <p>Strength: <strong>{{ result.strength if result else generated.strength }}</strong></p>
+  {% if result and result.strength != 'Strong' %}
+    <p class="text-danger">⚠️ Consider using a stronger password!</p>
+  {% endif %}
+</div>
