@@ -16,7 +16,5 @@ This is a simple Python Flask web application that checks the strength of a give
 - ✅ Real-time feedback on password strength
 - ✅ No OOP, no Pandas/Numpy used
 
----
 
-## 📁 Project Structure
 
